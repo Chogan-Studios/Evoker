@@ -1,9 +1,17 @@
+/*
+ * Copyright (c) 2026 Chogan Studios. All rights reserved.
+ * Licensed under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+ * See LICENSE file in the project root for full license information.
+ */
 
 #include "EvokerSystemComponent.h"
 
 #include <Evoker/EvokerTypeIds.h>
+#include <Evoker/IProceduralService.h>
+#include "ProceduralService.h"
 
 #include <AzCore/Serialization/SerializeContext.h>
+#include <AzCore/Interface/Interface.h>
 
 namespace Evoker
 {
@@ -62,10 +70,23 @@ namespace Evoker
     {
         EvokerRequestBus::Handler::BusConnect();
         AZ::TickBus::Handler::BusConnect();
+
+        // --- Initialize and Register Procedural Service ---
+        m_proceduralService = AZStd::make_unique<ProceduralService>();
+        AZ::Interface<IProceduralService>::Register(m_proceduralService.get());
     }
 
     void EvokerSystemComponent::Deactivate()
     {
+        // --- Unregister and Destroy Procedural Service ---
+        AZ::Interface<IProceduralService>::Unregister(m_proceduralService.get());
+        
+        if (m_proceduralService)
+        {
+            m_proceduralService->Shutdown();
+            m_proceduralService.reset();
+        }
+
         AZ::TickBus::Handler::BusDisconnect();
         EvokerRequestBus::Handler::BusDisconnect();
     }
