@@ -1,0 +1,2 @@
+# Evoker
+Evoker is a high-performance object pooling and procedural placement gem. It separates logical object lifetime from O3DE entities using a cache-friendly Structure-of-Arrays (SoA) table, enabling O(1) lifecycle management (pickup/expiry) for tens of thousands of objects. It features a budgeted asynchronous spawner and a pluggable, deterministic procedural generation system with auto-generated Editor UI and Lua/Script Canvas support.
