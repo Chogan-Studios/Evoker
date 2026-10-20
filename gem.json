@@ -7,24 +7,27 @@
     "origin": "Chogan Studios",
     "origin_url": "choganstudios.com",
     "type": "Code",
-    "summary": "An O3DE gem for spawning and managing thousands of queryable dynamic objects (collectibles, debris, ambient FX, NPC spawns) without per-entity overhead. It manages both persistent items that remain in the world until picked up, as well as timed transient objects, using a Structure-of-Arrays (SoA) SlotTable for hot data. It includes a budgeted asynchronous SpawnExecutor for entity creation, and a pluggable, deterministic procedural provider system with Lua and Script Canvas exposure. The architecture is built to support future seed-based multiplayer replication.",
+    "summary": "An O3DE gem for spawning and managing thousands of queryable dynamic objects (collectibles, debris, ambient FX, NPC spawns) without per-entity overhead. It manages both persistent items that remain in the world until picked up, as well as timed transient objects, using a Structure-of-Arrays (SoA) SlotTable for hot data. It includes a budgeted asynchronous SpawnExecutor for entity creation, and a pluggable, deterministic procedural provider system with Lua exposure. The architecture is built to support future seed-based multiplayer replication.",
     "canonical_tags": [
         "Gem"
     ],
     "user_tags": [
-        "Spawning","Evoker","Procedural"
+        "Framework",
+        "Spawner",
+        "Procedural"
     ],
     "platforms": [
-        "Windows","Linux"
+        "Windows",
+        "Linux"
     ],
-    "icon_path": "",
-    "requirements": "",
+    "icon_path": "preview.png",
+    "requirements": "Requires LmbrCentral and PhysX.",
     "documentation_url": "",
     "dependencies": [
+        "LmbrCentral",
+        "PhysX"
     ],
     "repo_uri": "",
-    "compatible_engines": [
-    ],
-    "engine_api_dependencies":[
-    ]
+    "compatible_engines": [],
+    "engine_api_dependencies": []
 }
